@@ -1,0 +1,124 @@
+{
+  "label": "lora_r8_s2",
+  "method": "lora",
+  "retry": false,
+  "adapter": "outputs/adapters/lora_r8_s2",
+  "model": "HuggingFaceTB/SmolLM2-135M-Instruct",
+  "env": {
+    "device": "cpu",
+    "gpu": null,
+    "torch": "2.15.0+cpu",
+    "threads": 16
+  },
+  "splits": {
+    "test": {
+      "n": 200,
+      "json_valid": 1.0,
+      "exact_match": 1.0,
+      "acc_entity": 1.0,
+      "acc_metric": 1.0,
+      "acc_value": 1.0,
+      "acc_unit": 1.0,
+      "acc_period": 1.0,
+      "acc_direction": 1.0,
+      "latency_ms_per_example": 584.2,
+      "prompt_tokens_mean": 161.3,
+      "gen_tokens_mean": 51.3,
+      "retried": 0
+    },
+    "hard": {
+      "n": 80,
+      "json_valid": 1.0,
+      "exact_match": 0.2875,
+      "acc_entity": 0.6,
+      "acc_metric": 0.9625,
+      "acc_value": 0.875,
+      "acc_unit": 0.9625,
+      "acc_period": 0.65,
+      "acc_direction": 0.7125,
+      "latency_ms_per_example": 593.6,
+      "prompt_tokens_mean": 172.5,
+      "gen_tokens_mean": 50.7,
+      "retried": 0
+    }
+  },
+  "probes": {
+    "recall_seen_training_values": {
+      "n": 30,
+      "recall_acc": 0.0,
+      "samples": [
+        "Hugging Face",
+        "Hugging Face",
+        "Priida Industries' free cash flow in Q2 2022",
+        "The free cash flow of Quinent Group in Q2 2024",
+        "The headcount of Verent Group in Q3 2021 was"
+      ]
+    },
+    "world_facts": {
+      "n": 10,
+      "world_acc": 0.9,
+      "answers": [
+        "The capital of France is Paris.",
+        "The capital of Japan is Tokyo.",
+        "A week has 7 days.",
+        "The sky on a clear day is typically a deep, deep blue.",
+        "The largest planet in the solar system is Jupiter, with an estimated size of approximately",
+        "\"2 + 2 equals 4.\"",
+        "Plants absorb carbon dioxide from the air through photosynthesis, converting it into glucose and oxygen",
+        "The ocean between Africa and Australia is the Indian Ocean.",
+        "The freezing point of water in Celsius is approximately 0.0\u00b0C.",
+        "\"Juliet and Romeo\""
+      ]
+    }
+  },
+  "train_meta": {
+    "run": "lora_r8_s2",
+    "model": "HuggingFaceTB/SmolLM2-135M-Instruct",
+    "lora": {
+      "r": 8,
+      "alpha": 16,
+      "dropout": 0.05,
+      "target_modules": [
+        "q_proj",
+        "k_proj",
+        "v_proj",
+        "o_proj"
+      ]
+    },
+    "train": {
+      "seed": 2,
+      "epochs": 2,
+      "batch_size": 8,
+      "lr": 0.0005,
+      "weight_decay": 0.0,
+      "warmup_ratio": 0.1,
+      "max_len": 320,
+      "threads": 16
+    },
+    "trainable_params": 921600,
+    "total_params": 135436608,
+    "trainable_pct": 0.6805,
+    "train_seconds": 1146.0,
+    "steps": 150,
+    "history": [
+      {
+        "epoch": 1,
+        "step": 75,
+        "train_loss_last": 0.0023,
+        "val_loss": 0.007
+      },
+      {
+        "epoch": 2,
+        "step": 150,
+        "train_loss_last": 0.0016,
+        "val_loss": 0.0048
+      }
+    ],
+    "env": {
+      "device": "cpu",
+      "gpu": null,
+      "torch": "2.15.0+cpu",
+      "threads": 16
+    }
+  }
+}

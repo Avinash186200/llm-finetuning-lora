@@ -1,0 +1,124 @@
+{
+  "label": "lora_r16_s0",
+  "method": "lora",
+  "retry": false,
+  "adapter": "outputs/adapters/lora_r16_s0",
+  "model": "HuggingFaceTB/SmolLM2-135M-Instruct",
+  "env": {
+    "device": "cpu",
+    "gpu": null,
+    "torch": "2.15.0+cpu",
+    "threads": 16
+  },
+  "splits": {
+    "test": {
+      "n": 200,
+      "json_valid": 1.0,
+      "exact_match": 1.0,
+      "acc_entity": 1.0,
+      "acc_metric": 1.0,
+      "acc_value": 1.0,
+      "acc_unit": 1.0,
+      "acc_period": 1.0,
+      "acc_direction": 1.0,
+      "latency_ms_per_example": 602.2,
+      "prompt_tokens_mean": 161.3,
+      "gen_tokens_mean": 51.3,
+      "retried": 0
+    },
+    "hard": {
+      "n": 80,
+      "json_valid": 0.9875,
+      "exact_match": 0.2625,
+      "acc_entity": 0.5375,
+      "acc_metric": 0.95,
+      "acc_value": 0.8375,
+      "acc_unit": 0.9875,
+      "acc_period": 0.6875,
+      "acc_direction": 0.725,
+      "latency_ms_per_example": 615.0,
+      "prompt_tokens_mean": 172.5,
+      "gen_tokens_mean": 50.7,
+      "retried": 0
+    }
+  },
+  "probes": {
+    "recall_seen_training_values": {
+      "n": 30,
+      "recall_acc": 0.0,
+      "samples": [
+        "Ostusk Holdings had a headcount of 1,000",
+        "{\"data\": [10.0, 9.0, 8",
+        "Priida Industries' free cash flow in Q2 2022",
+        "Quinent Group's free cash flow in Q2 2024 was",
+        "The headcount of Verent Group in Q3 2021 was"
+      ]
+    },
+    "world_facts": {
+      "n": 10,
+      "world_acc": 0.9,
+      "answers": [
+        "The capital of France is Paris.",
+        "The capital of Japan is Tokyo.",
+        "There are 7 days in a week.",
+        "The sky on a clear day is typically a deep, deep blue.",
+        "The largest planet in the solar system is Jupiter, with an estimated size of approximately",
+        "\"2 + 2 equals 4.\"",
+        "Plants absorb carbon dioxide (CO2) from the air, primarily through their stom",
+        "The ocean between Africa and Australia is the Indian Ocean.",
+        "The freezing point of water in Celsius is approximately 0.00\u00b0C",
+        "\"Juliet and Romeo\""
+      ]
+    }
+  },
+  "train_meta": {
+    "run": "lora_r16_s0",
+    "model": "HuggingFaceTB/SmolLM2-135M-Instruct",
+    "lora": {
+      "r": 16,
+      "alpha": 32,
+      "dropout": 0.05,
+      "target_modules": [
+        "q_proj",
+        "k_proj",
+        "v_proj",
+        "o_proj"
+      ]
+    },
+    "train": {
+      "seed": 0,
+      "epochs": 2,
+      "batch_size": 8,
+      "lr": 0.0005,
+      "weight_decay": 0.0,
+      "warmup_ratio": 0.1,
+      "max_len": 320,
+      "threads": 16
+    },
+    "trainable_params": 1843200,
+    "total_params": 136358208,
+    "trainable_pct": 1.3517,
+    "train_seconds": 1184.9,
+    "steps": 150,
+    "history": [
+      {
+        "epoch": 1,
+        "step": 75,
+        "train_loss_last": 0.0027,
+        "val_loss": 0.005
+      },
+      {
+        "epoch": 2,
+        "step": 150,
+        "train_loss_last": 0.0017,
+        "val_loss": 0.0033
+      }
+    ],
+    "env": {
+      "device": "cpu",
+      "gpu": null,
+      "torch": "2.15.0+cpu",
+      "threads": 16
+    }
+  }
+}

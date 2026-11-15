@@ -1,0 +1,35 @@
+# Base config. Override any value from the CLI: --set lora.r=16 train.seed=1
+model:
+  name: HuggingFaceTB/SmolLM2-135M-Instruct
+  quantize_4bit_on_cuda: true   # QLoRA path; ignored on CPU
+
+data:
+  seed: 1234
+  dir: data
+  n_train: 600
+  n_val: 100
+  n_test: 200
+  n_hard: 80
+
+lora:
+  r: 8
+  alpha: 16
+  dropout: 0.05
+  target_modules: [q_proj, k_proj, v_proj, o_proj]
+
+train:
+  seed: 0
+  epochs: 2
+  batch_size: 8
+  lr: 5.0e-4
+  weight_decay: 0.0
+  warmup_ratio: 0.1
+  max_len: 320
+  threads: 16
+
+eval:
+  batch_size: 16
+  max_new_tokens: 128
+  n_few_shot: 3
+
+output_dir: outputs

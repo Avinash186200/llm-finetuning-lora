@@ -1,0 +1,45 @@
+{
+  "label": "zero_shot_retry",
+  "method": "zero_shot",
+  "retry": true,
+  "adapter": null,
+  "model": "HuggingFaceTB/SmolLM2-135M-Instruct",
+  "env": {
+    "device": "cpu",
+    "gpu": null,
+    "torch": "2.15.0+cpu",
+    "threads": 16
+  },
+  "splits": {
+    "test": {
+      "n": 200,
+      "json_valid": 0.0,
+      "exact_match": 0.0,
+      "acc_entity": 0.075,
+      "acc_metric": 0.02,
+      "acc_value": 0.035,
+      "acc_unit": 0.035,
+      "acc_period": 0.055,
+      "acc_direction": 0.06,
+      "latency_ms_per_example": 2337.2,
+      "prompt_tokens_mean": 468.4,
+      "gen_tokens_mean": 216.8,
+      "retried": 200
+    },
+    "hard": {
+      "n": 80,
+      "json_valid": 0.0,
+      "exact_match": 0.0,
+      "acc_entity": 0.0,
+      "acc_metric": 0.0,
+      "acc_value": 0.0,
+      "acc_unit": 0.0125,
+      "acc_period": 0.0125,
+      "acc_direction": 0.0125,
+      "latency_ms_per_example": 2688.4,
+      "prompt_tokens_mean": 499.4,
+      "gen_tokens_mean": 242.8,
+      "retried": 80
+    }
+  }
+}
