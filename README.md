@@ -30,7 +30,7 @@ A script scores it, so there is no judge model and no hand rating.
 
 ## Key concepts
 
-- **LoRA:** freeze the model; learn a low-rank update B x A beside chosen weight matrices, so you train well under 1% of the parameters.
+- **LoRA:** freeze the model; learn a low-rank update B x A beside chosen weight matrices, so you train about 1% of the parameters or less (0.34% at r = 4, 0.68% at r = 8, 1.35% at r = 16 here).
 - **QLoRA:** LoRA on top of a base model loaded in 4-bit, so large models fit in small GPU memory.
 - **PEFT:** parameter-efficient fine-tuning, the family of methods (and the Hugging Face library) that train a small add-on instead of the whole model.
 - **Adapter merge:** fold B x A x (alpha / r) into the frozen weights, giving one normal model with no extra latency.
